@@ -29,10 +29,9 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-	side1= new Ground(500,670,200,20);
-	side2= new Ground(400,620,20,100);
-	side3= new Ground(600,620,20,100);
-	packageBody = Bodies.circle(width/2 , 200 , 5, {restitution:0.3, isStatic : true});
+	
+	packageBody = Bodies.circle(width/2 , 200 , 5, {restitution:0.8});
+	isStatic : true
 	Matter.Body.setStatic(packageBody, true);
 	World.add(world, packageBody);
 	
@@ -55,21 +54,12 @@ function draw() {
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
   drawSprites();
-  side1.display();
-  side2.display();
-  side3.display();
+  
   keyPressed();
 }
 
 function keyPressed() {
- if (keyCode === RIGHT_ARROW) {
-		helicopterSprite.x+=20;
-		Matter.Body.translate(packageBody,{x:20,y:0});
-	}
-	if (keyCode === LEFT_ARROW) {
-		helicopterSprite.x-=20;
-		Matter.Body.translate(packageBody,{x:-20,y:0});
-	}
+ 
 	
 	
 	
